@@ -22,11 +22,15 @@ public class RecogerLetraPorTeclado {
         int dinero;
         //recoge la frase que pongas pero devuelve la
         //letra que esta en la primera posicion
+        System.out.println("Cuanto dinero tienes pon solo euros sin centimos");
+        dinero = teclado.nextInt(); //me queda el return en el buffer
+        
+        teclado.nextLine(); //limpia el return del nextint anterior
         mayorEdad = teclado.nextLine().charAt(0);
         System.out.println("Has escogido " + mayorEdad);
         
-        System.out.println("Cuanto dinero tienes pon solo euros sin centimos");
-        dinero = teclado.nextInt();
+       
+        
         
         
         //or || (Alt gr + 1)
