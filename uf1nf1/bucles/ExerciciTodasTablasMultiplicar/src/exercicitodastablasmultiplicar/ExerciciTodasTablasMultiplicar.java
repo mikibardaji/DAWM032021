@@ -11,7 +11,8 @@ package exercicitodastablasmultiplicar;
 public class ExerciciTodasTablasMultiplicar {
 
     /**
-     * @param args the command line arguments
+     * Dissenya una aplicació que mostri les taules de multiplicar 
+     * de l'1 al 10 (pista: dos bucles anidats).
      */
     public static void main(String[] args) {
         int tabla=6;

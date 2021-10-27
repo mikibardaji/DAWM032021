@@ -11,13 +11,14 @@ package codigoascci;
 public class CodigoAscci {
 
     /**
-     * @param args the command line arguments
+     * Escriu un programa que mostri el codi ASCII dels caràcters 
+     * des de l'A fins la Z
      */
     public static void main(String[] args) {
         char letra ;
         int codigoAscii;
         
-        for (letra = 'a'; letra <= 'z'; letra++) {
+        for (letra = 'A'; letra <= 'Z'; letra++) {
             codigoAscii = (int) letra;
             System.out.println(letra + "-" + codigoAscii);
         }
