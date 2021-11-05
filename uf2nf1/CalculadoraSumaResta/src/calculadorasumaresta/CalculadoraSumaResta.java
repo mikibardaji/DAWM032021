@@ -23,26 +23,16 @@ public class CalculadoraSumaResta {
         
         mostrarFraseValor(1);
         valor1=introducirPositivo(sc);
+        
         mostrarFraseValor(2);
         valor2 = introducirPositivo(sc);
+        
         mostrarMenu();
+        
         opcion = validarOpcion(sc);
-        if (opcion==1)
-        {
-            resultado = calcularSuma(valor1,valor2);
-        }
-        else if(opcion==2)
-        {
-            resultado = calcularResta(valor1, valor2);
-        }
-        else if(opcion==3)
-        {
-            resultado = calcularMulti(valor1, valor2);
-        } 
-        else if(opcion==4)
-        {
-            resultado = calcularDivision(valor1, valor2);
-        } 
+        
+        resultado=hacerCalculoCalculadora(opcion,valor1,valor2);
+        
         
         System.out.println("El resultado de la operación elegida es " + resultado);
         
@@ -139,6 +129,35 @@ public class CalculadoraSumaResta {
 
     private static void mostrarFraseValor(int i) {
         System.out.println("Valor "+ i);
+    }
+
+    /**
+     * realiza el calculo indicado en la variable opcion con los valores pasados
+     * @param opcion 1 es suma,2 es resta, 3 multiplicacion, 4 division
+     * @param valor1 primer valor del calculo
+     * @param valor2 segundo valor
+     * @return el resultado de realizar la operacion indicada en la variable opción
+     */
+    
+    private static double hacerCalculoCalculadora(int opcion, int valor1, int valor2) {
+        double resultado=0;
+        if (opcion==1)
+        {
+            resultado = calcularSuma(valor1,valor2);
+        }
+        else if(opcion==2)
+        {
+            resultado = calcularResta(valor1, valor2);
+        }
+        else if(opcion==3)
+        {
+            resultado = calcularMulti(valor1, valor2);
+        } 
+        else if(opcion==4)
+        {
+            resultado = calcularDivision(valor1, valor2);
+        } 
+        return resultado;
     }
     
     
