@@ -26,6 +26,9 @@ public class AdivinaNumero {
         int numJugador;
         System.out.println("Adivina el numero que he pensado");
         numJugador = teclado.nextInt();
+        //tengo numaleatori con el numero de la maquina
+        //tengao numjugador con el numero que he puesto yo
+        
         if(numJugador>numAleatorio)
         {
             System.out.println("Es menor");
