@@ -21,19 +21,45 @@ public class AdivinaNumero {
         Random r = new Random();
         //el numero de dentro del nexint es el numero diferentes de valores
         //y la suma es el valor minimo por el que empezara
-        int numAleatorio = r.nextInt(20)+1;
-        System.out.println("maquina" + numAleatorio);
+        int numAleatorio = r.nextInt(70)+1;
+        //System.out.println("maquina" + numAleatorio);
         int numJugador;
-        System.out.println("Adivina el numero que he pensado");
-        numJugador = teclado.nextInt();
-        //tengo numaleatori con el numero de la maquina
-        //tengao numjugador con el numero que he puesto yo
+
+        int intentos=0;
+          System.out.println("Adivina el numero que he pensado");
+        do{
+            System.out.print("Escribe numero:");
+            numJugador = teclado.nextInt();
+            intentos++;
+            //tengo numaleatori con el numero de la maquina
+            //tengao numjugador con el numero que he puesto yo
+
+            if(numJugador>numAleatorio)
+            {
+                System.out.println("Es menor ");
+                System.out.println("Te quedan " + (8-intentos) + " intentos");
+            }
+            else if (numJugador<numAleatorio)
+            {
+                System.out.println("Es mayor ");
+                System.out.println("Te quedan " + (8-intentos) + " intentos");
+            }
+            
         
-        if(numJugador>numAleatorio)
+        }while(numAleatorio != numJugador && intentos <= 8);
+        //intentos >8
+        //if numAleatorio == numJugador
+        if (numAleatorio == numJugador)
         {
-            System.out.println("Es menor");
+            System.out.println("adivinaste en" + intentos + " intentos");
+        }
+        else
+
+        {
+            System.out.println("LOSER!");
         }
         
+        //terminara numAleatorio == numJugador
     }
     
 }
