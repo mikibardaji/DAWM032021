@@ -27,8 +27,8 @@ public class FactorialRecursivo {
      */
     public static int factorial(int valor) throws InterruptedException
     {
-        int ms = 2000;
-        int calculo;
+        int ms = 1000;
+        int calculo, retornofactorial;
         Thread.sleep(ms);
         System.out.println("Soy el factorial(" + valor + ")");
         Thread.sleep(ms);
@@ -40,7 +40,7 @@ public class FactorialRecursivo {
         }
         else if (valor==1) //caso base
         {
-            System.out.println("valor=1;Retorno 1");
+            System.out.println("ya se 1!, retorno 1");
             Thread.sleep(ms);
             return 1;
         }
@@ -51,11 +51,13 @@ public class FactorialRecursivo {
         else //caso recursivo valor >1
         {//solo tengo las variables que me llegan de entrada a la función
          //en este caso la variabe valor
-         System.out.println("valor=" + valor + " y me llamo a factorial(" + (valor-1) + ")");
+         System.out.println("valor=" + valor + " y llamo al factorial(" + (valor-1) + ")");
          Thread.sleep(ms);
-         calculo = valor*factorial(valor-1);
+         retornofactorial = factorial(valor-1);
+            System.out.println(valor + "*" + retornofactorial);
+         calculo = valor*retornofactorial;
          
-            System.out.println(valor +"! vale " + calculo);
+         System.out.println(valor +"! vale " + calculo + " y retorno para arriba " + calculo );
          Thread.sleep(ms);
          
            return calculo;         
