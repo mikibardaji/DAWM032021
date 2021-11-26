@@ -53,14 +53,16 @@ public class FactorialRecursivo {
          //en este caso la variabe valor
          System.out.println("valor=" + valor + " y llamo al factorial(" + (valor-1) + ")");
          Thread.sleep(ms);
-         retornofactorial = factorial(valor-1);
+         retornofactorial = factorial(valor-1); //1
             System.out.println(valor + "*" + retornofactorial);
-         calculo = valor*retornofactorial;
+         calculo = valor*retornofactorial; //2
          
          System.out.println(valor +"! vale " + calculo + " y retorno para arriba " + calculo );
          Thread.sleep(ms);
          
-           return calculo;         
+           return calculo;          //3
+           
+           //return valor*factorial(valor-1); //1,2,3
         }
         
     }
