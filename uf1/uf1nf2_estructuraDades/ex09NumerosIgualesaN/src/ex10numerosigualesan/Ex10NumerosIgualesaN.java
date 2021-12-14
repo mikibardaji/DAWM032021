@@ -24,7 +24,7 @@ public class Ex10NumerosIgualesaN {
         inicializarArray(valores);
         mostrarArray(valores);
         Scanner sc = new Scanner(System.in);
-        System.out.println("Pon valor entre 1 y 1000");
+        System.out.println("Pon valor entre 1 y 20");
         int valorMarca = sc.nextInt();
         BuscarNumerosSuperiores(valores, valorMarca);
     }
