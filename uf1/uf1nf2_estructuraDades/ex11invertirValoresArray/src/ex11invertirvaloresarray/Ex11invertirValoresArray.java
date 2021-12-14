@@ -51,5 +51,15 @@ primer array al segundo array en orden inverso, y mostrar ambos por pantalla.
                invertido[indice_invertido]= valores[i];
         }
     }
+
+    private static void copiarFormaInvertida2(int[] valores, int[] invertido) {
+
+        int indice_invertido=0;
+        for (int i = (valores.length-1); i >= 0; i--) {
+               invertido[indice_invertido]= valores[i];
+               indice_invertido++;
+        }
+    }
+
     
 }
