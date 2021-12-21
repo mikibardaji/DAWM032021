@@ -16,7 +16,7 @@ public class ExBingo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       int[] carton = new int[5];
+       int[] carton = new int[30];
        int bola_sacada,aciertos=0;
        int[] historial_bolas = new int[89];
        int contador_bolas=0;
@@ -47,8 +47,13 @@ public class ExBingo {
     
     private static void llenarCarton(int[] carton) {
         Random rd = new Random();
+        int numero;
         for (int i = 0; i < carton.length; i++) {
-            carton[i] = rd.nextInt(89)+1;
+                do{
+                numero = rd.nextInt(89)+1;//mientras no sale una bola valida la i no aumenta
+                //la i nos sirve para saber cuantos numeros llevamos colocados
+                }while(comprobarSihaSalido(carton, i, numero));
+            carton[i] = numero;
         }    
     }
 
