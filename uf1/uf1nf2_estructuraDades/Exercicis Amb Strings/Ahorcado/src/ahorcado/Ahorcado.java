@@ -22,21 +22,37 @@ public class Ahorcado {
         
         char[] palabra_guiones = new char[palabra_oculta.length()];
         
+        //funcion para inicializar todo a guiones palabra_guiones
         inicializarGuiones(palabra_guiones);
         
-        mostrarPalabraGuiones(palabra_guiones, intentos);
-        //funcion para inicializar todo a guiones palabra_guiones
-        
+        do{
         //funcion que seria mostrar palabra_guiones (en ese momento tiene guiones) --> ImprimirGuiones
-        
+        mostrarPalabraGuiones(palabra_guiones, intentos);
         //Pedir Letra a Buscar
-       // char letra = PedirLetraBuscar();
+        char letra = PedirLetraBuscar();
         
-       // boolean existeLetra = buscarLetraEnPalabra(palabra_oculta,letra,palabra_guiones)
-        //Buscar la letra en el string, si esta, la copia en el char palabra_guiones y devuelvo true
+        //Buscar la letra en el string, si esta, la copia en el aaray de char palabra_guiones 
+        //y devuelvo true al final de recorrer toda la palabra
+        boolean existeLetra = buscarLetraEnPalabra(palabra_oculta,letra,palabra_guiones);
         
+        if (!existeLetra)
+        {
+            intentos--; //me queda un intento menos
+            dibujar(intentos);
+        }
         //Si he devuelto false resto un intento
         
+        }while(!(heGanado(palabra_guiones) || intentos <=0));
+        
+        if (intentos>0)
+        {
+            System.out.println("Felicidades");
+        }
+        else
+        {
+            System.out.println("perdiste");
+        }
+        //}while(heGanado(palabra_guiones)==false && intentos >0);
         //mostrar ImprimirGuiones
         //comprobarsiheganado que es comprobar si existe algun - o no (True/False)
     }
@@ -46,6 +62,12 @@ public class Ahorcado {
         String datos;  
         System.out.println(frase);
         datos = sc.nextLine();
+        datos = datos.toLowerCase();
+        //100 lineas en blanco
+        for (int i = 0; i < 50; i++) {
+            System.out.println("");
+            
+        }
         return datos;
     }
 
@@ -64,23 +86,192 @@ public class Ahorcado {
         System.out.println("");
         System.out.println("Te quedan " + intentos + " intentos ");
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
+    private static char PedirLetraBuscar() {
+        char letra;
+        Scanner teclat = new Scanner(System.in);
+        System.out.print("Que letra quieres? ");
+        letra = teclat.nextLine().toLowerCase().charAt(0);
+        
+        return letra;
+    }
+
+    private static boolean buscarLetraEnPalabra(String palabra_oculta, char letra, char[] palabra_guiones) {
+        boolean encontrado = false;
+        for (int index = 0; index < palabra_oculta.length(); index++) {
+            if (palabra_oculta.charAt(index)==letra)
+            {
+                palabra_guiones[index] = letra; //asigo letra a la posicion que toca, elimino el guion
+                //return true;//no hago return porque sino a la primera coincidencia 
+                //para de buscar yu me interesa que busque en toda la palabra por si hay mas
+                encontrado = true;
+            }
+            
+        }
+        return encontrado;
+        
+        
+    }
+    
+    private static void dibujar(int i) {
+        switch (i) {
+            case 6:
+                System.out.println(" ---------------------");
+                for (int j = 0; j <= 15; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                break;
+ 
+            case 5:
+                System.out.println(" ---------------------");
+                System.out.println(" |                     |");
+                System.out.println(" |                     |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                 | -  -  |");
+                System.out.println(" |                 |   o   |");
+                System.out.println(" |                  -------");
+                for (int j = 0; j <= 10; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                break;
+ 
+            case 4:
+                System.out.println(" ---------------------");
+                System.out.println(" |                     |");
+                System.out.println(" |                     |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                 | -  -  |");
+                System.out.println(" |                 |   o   |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                     |   ");
+                for (int j = 0; j <= 5; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                break;
+ 
+            case 3:
+                System.out.println(" ---------------------");
+                System.out.println(" |                     |");
+                System.out.println(" |                     |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                 | -  -  |");
+                System.out.println(" |                 |   o   |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                   / |   ");
+                System.out.println(" |                 /   |   ");
+                System.out.println(" |                /    |   ");
+                System.out.println(" |                     |   ");
+                for (int j = 0; j <= 5; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                break;
+ 
+            case 2:
+                System.out.println(" ---------------------");
+                System.out.println(" |                     |");
+                System.out.println(" |                     |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                 | -  -  |");
+                System.out.println(" |                 |   o   |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                   / | \\ ");
+                System.out.println(" |                  /  |   \\ ");
+                System.out.println(" |                 /   |     \\ ");
+                System.out.println(" |                     |   ");
+                for (int j = 0; j <= 5; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                break;
+ 
+            case 1:
+                System.out.println(" ---------------------");
+                System.out.println(" |                     |");
+                System.out.println(" |                     |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                 | -  -  |");
+                System.out.println(" |                 |   o   |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                   / | \\ ");
+                System.out.println(" |                  /  |   \\ ");
+                System.out.println(" |                 /   |     \\ ");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                    /  ");
+                System.out.println(" |                   /      ");
+                System.out.println(" |                  /       ");
+                for (int j = 0; j <= 2; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                break;
+ 
+            case 0:
+               System.out.println(" ---------------------");
+                System.out.println(" |                     |");
+                System.out.println(" |                     |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                 | X  X  |");
+                System.out.println(" |                 |   o   |");
+                System.out.println(" |                  -------");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                   / | \\ ");
+                System.out.println(" |                  /  |   \\ ");
+                System.out.println(" |                 /   |     \\ ");
+                System.out.println(" |                     |   ");
+                System.out.println(" |                    / \\");
+                System.out.println(" |                   /   \\  ");
+                System.out.println(" |                  /     \\ ");
+                for (int j = 0; j <= 2; j++) {
+                    System.out.println(" |");
+ 
+                }
+                System.out.println("__________");
+                System.out.println("GAME OVER");
+                break;
+        }
+    }
+
+    private static boolean heGanado(char[] palabra_guiones) {
+//        boolean ganado = true;
+//        for (int index = 0; index < palabra_guiones.length; index++) {
+//            if (palabra_guiones[index]=='-')
+//            {
+//                
+//                ganado = false;
+//            }
+//            
+//        }
+//        return ganado;   
+      
+        for (int index = 0; index < palabra_guiones.length; index++) {
+            if (palabra_guiones[index]=='-')
+            { 
+                return false;
+            }
+            
+        }
+        return true;
+        
+        //String palabra = String.copyValueOf(palabra_guiones);
+    }
+    
+    
 
 }
