@@ -32,8 +32,16 @@ public class Ex3Bidimensional {
         
         rellenarAleatorios(tabla);
         mostrarArrayBidimensional(tabla);
-        calcularPositivosNegativosCero(tabla);
-        sumarTodosValoresPorFila(tabla);
+        //calcularPositivosNegativosCero(tabla);
+        //sumarTodosValoresPorFila(tabla);
+        System.out.println("Dime la fila y te calculo la suma de esa sola fila");
+        int fila = sc.nextInt(); //el usuario piensa que la tabla tiene 1,2,3,4,5,
+        int suma_fila = calcularSumaFila(tabla,fila-1);
+        System.out.println("la fila" + fila + " suma " + suma_fila);
+        System.out.println("Dime la columnas y te calculo la suma de esa sola fila");
+        int columna = sc.nextInt(); //el usuario piensa que la tabla tiene 1,2,3,4,5,
+        int suma_columna = calcularSumaColumna(tabla,columna-1);
+        System.out.println("la columna" + columna + " suma " + suma_columna);
     }
     
     
@@ -78,7 +86,7 @@ public class Ex3Bidimensional {
             }
             
         }
-        System.out.println(pos + "-" + neg + "- " + zeros);
+        System.out.println("positivos="+ pos + "-negativos="+ + neg + "-zeros=" + zeros);
     }
 
     /**
@@ -88,7 +96,39 @@ public class Ex3Bidimensional {
      * @param tabla 
      */
     private static void sumarTodosValoresPorFila(int[][] tabla) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int suma_acum;
+        for (int fila = 0; fila < tabla.length; fila++) {
+            suma_acum=0;
+            for (int col = 0; col < tabla[0].length; col++) { //array de un sola dimensio []
+                suma_acum = suma_acum + tabla[fila][col];
+            }
+            System.out.println("la suma de la fila " + (fila+1) + " es " + suma_acum);
+        }
+ 
+    }
+
+    private static int calcularSumaFila(int[][] tabla, int fila) {
+        //la fila no ha de canviar mai
+        int suma_acum=0;
+        for (int i = 0; i < tabla[fila].length; i++) {
+            suma_acum = suma_acum + tabla[fila][i];
+        }
+        return suma_acum;
+        
+    }
+
+    private static int calcularSumaColumna(int[][] tabla, int col) {
+        int suma_acum=0;
+        //nº de filas = tablas.length
+        //nº columnas = tablas[0].length
+        for (int filas = 0; filas < tabla.length; filas++) {
+            suma_acum = suma_acum + tabla[filas][col];
+        }
+        // recorro todo menos la ultima fila
+//                for (int filas = 0; filas < tabla.length-1; filas++) {
+//            suma_acum = suma_acum + tabla[filas][col];
+//        }
+        return suma_acum;
     }
     
 }
