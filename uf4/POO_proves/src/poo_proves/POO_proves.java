@@ -19,7 +19,7 @@ public class POO_proves {
      */
     public static void main(String[] args) {
         Botella primera=new Botella(); //constructor (reserva memoria)
-        Vaso primer_got=new Vaso();
+        Vaso primer_got1=new Vaso();
         Scanner sc= new Scanner(System.in);
         
         primera.setMaterial("Metall");
