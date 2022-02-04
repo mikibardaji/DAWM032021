@@ -17,6 +17,39 @@ public class Botella {
     //lleno no lo ponemos porque se puede calcular 
     //a partir de los otros atributos.
     
+    public Botella()
+    {
+        this.setMaterial("Vidre");
+//        capacitad_total = 1000;
+        this.setCapacitad_total(1000);
+        this.capacidad_actual = 0;
+        //this.rellenarCapacidadActual(0);
+        this.tapada = false; //this.taparBotella()
+        
+    }
+    
+    public Botella(String Material)
+    {
+        this.setMaterial(Material);
+        this.setCapacitad_total(1000);
+        this.capacidad_actual = 0;
+        //this.rellenarCapacidadActual(0);
+        this.tapada = false; //this.taparBotella()
+    }
+
+    public Botella(String material, int capacitad_total) {
+        this.setMaterial(material);
+        this.capacitad_total = capacitad_total;
+        this.capacidad_actual = 0;
+        //this.rellenarCapacidadActual(0);
+        this.tapada = false; //this.taparBotella()
+
+    }
+    
+    
+    
+    
+    
     
     //metodes
     

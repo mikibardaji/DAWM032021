@@ -14,6 +14,21 @@ public class Vaso {
     private int capacidad_actual;
     //private boolean lleno;
 
+    public Vaso()
+    {
+        this.material = "Vidre";
+        this.capacitad_total = 300; //se podria llamar al set, pero como no tiene validaciones
+        this.capacidad_actual = 0;
+    }
+
+    public Vaso(int capacitad_total) {
+        this.material = "Vidre";
+        this.capacitad_total = capacitad_total;
+        this.capacidad_actual = 0;
+    }
+    
+    
+    
     public void setMaterial(String material) {
         this.material = material;
     }
