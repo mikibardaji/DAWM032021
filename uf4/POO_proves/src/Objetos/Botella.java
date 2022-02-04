@@ -46,8 +46,8 @@ public class Botella {
 
     public void setCapacitad_total(int capacitad_total) {
         this.capacitad_total= capacitad_total;
-        capacitad_total = 1500;
-        //capacitad_total = capacitad_total;
+        //capacitad_total = 1500;
+        ////capacitad_total = capacitad_total;
     }
 
     public int getCapacidad_actual() {
@@ -62,11 +62,44 @@ public class Botella {
         return tapada;
     }
 
-    public void setTapada(boolean tapada) {
-        this.tapada = tapada;
+    //elimino el setter perque ja existeix obrir i tancar
+//    public void setTapada(boolean tapada) {
+//        this.tapada = tapada;
+//    }
+
+    public void obrirBotella()
+    {
+        tapada = false;
     }
-
-
+    
+    public void taparBotella()
+    {
+        tapada = true;
+    }
+    
+    public int vessarBotella()
+    {
+        final int cantitat_vessada = 25;
+        if (!this.isTapada())
+        {
+            if (this.capacidad_actual< cantitat_vessada)
+            {
+               int mlqueda = this.capacidad_actual;
+               this.capacidad_actual = 0; //botella sin liquido
+               return mlqueda;
+            }
+            else
+            {
+            this.capacidad_actual = this.capacidad_actual - cantitat_vessada;
+            return cantitat_vessada;
+            }
+        }
+        else
+        { //si esta tapada
+            return 0;
+        }
+        
+    }
 
 
 

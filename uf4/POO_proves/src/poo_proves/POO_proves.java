@@ -32,10 +32,7 @@ public class POO_proves {
         primera.setCapacitad_total(500);
         System.out.println(primera.getCapacitad_total());
         
-        
-        
-        
-        
+        primera.taparBotella();
         
         
     }
