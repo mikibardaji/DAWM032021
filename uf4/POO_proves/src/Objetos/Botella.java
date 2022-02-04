@@ -54,9 +54,25 @@ public class Botella {
         return capacidad_actual;
     }
 
-    public void setCapacidad_actual(int capacidad_actual) {
-        this.capacidad_actual = capacidad_actual;
+//    public void setCapacidad_actual(int capacidad_actual) {
+//        this.capacidad_actual = capacidad_actual;
+//    }
+    
+    public void rellenarCapacidadActual(int capacidad_actual) {
+        if ((this.capacidad_actual + capacidad_actual)
+                < capacitad_total) //<-- esta ya es el this por defecto
+        {
+        this.capacidad_actual = this.capacidad_actual + capacidad_actual;
+    }   
+        else
+        {
+            this.capacidad_actual = this.capacitad_total;
+        }
+    
+    
     }
+    
+    
 
     public boolean isTapada() {
         return tapada;
@@ -77,6 +93,10 @@ public class Botella {
         tapada = true;
     }
     
+    /**
+     * metodo que simula , els ml que tira una botella cada vez que la decantamos
+     * @return el liquido vertido, o devuelve -1 si la botella esta tapada.
+     */
     public int vessarBotella()
     {
         final int cantitat_vessada = 25;
@@ -96,11 +116,15 @@ public class Botella {
         }
         else
         { //si esta tapada
-            return 0;
+            return -1;
         }
         
     }
 
+    public boolean isPlena()
+    {
+        return this.capacidad_actual == this.capacitad_total;
+    }
 
 
 }
