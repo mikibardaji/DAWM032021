@@ -16,6 +16,11 @@ public class Punto {
     private int x;
     private int y;
     
+   
+    public Punto()
+    {
+        
+    }
     
     public Punto(int x1, int y1)
     {
@@ -81,6 +86,20 @@ public class Punto {
         ejemplo= new Punto(coordx, coordy);
     
         return ejemplo;
+    }
+    
+    
+        
+    //no pertenece a los objetos, sino que pertence a la clase
+    public static void creaPuntoAleatorio(Punto y)
+    {
+        Punto ejemplo;
+        Random rd = new Random();
+        int coordx = rd.nextInt(201)-100; //-100 al 100, que son 201 posibles valores
+        int coordy = rd.nextInt(201)-100;
+        y= new Punto(coordx, coordy);
+    
+    
     }
             
 }

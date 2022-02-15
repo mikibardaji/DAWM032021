@@ -112,6 +112,11 @@ public class Ex1Punto {
         p1.imprime();
         p2.imprime();
         p3.imprime();
+        
+        double valor_pi = Math.PI;
+        Punto nuevo = new Punto();
+        Punto.creaPuntoAleatorio(nuevo);
+        System.out.println("nuevo tendria los valores");
     }
     
 }
