@@ -33,10 +33,12 @@ public class CaixaBank {
                 mostrarIBAN(CCC);                
                 break;
             case 5:
-            //"5. Ingreso. Pedirá la cantidad a ingresar y realizará el ingreso si es posible.\n" +
-            realizarIngreso(CCC);
-            break;
-            
+                //"5. Ingreso. Pedirá la cantidad a ingresar y realizará el ingreso si es posible.\n" +
+                realizarIngreso(CCC);
+                break;
+            case 6:
+                realizarTransferencia(CCC);
+                break;
             case 7:
                 mostrarMovimientos(CCC);
                 break;
