@@ -45,13 +45,23 @@ public class ArrayVSArrayList {
         lista_coor_arrayList.add(e);
         System.out.println("vuelvo a imprimir array");
         listarArray(lista_coor_arrayList);
-        
+       
         //voy a añadir mas puntos al arrayList
-        PuntoCoordenadas anyadir;
-        for (int i = 0; i < 3; i++) {
-            anyadir = PedirDatosCoordenadas();
+        PuntoCoordenadas anyadir; //aun no he puesto new
+        for (int i = 0; i < 1; i++) {
+            anyadir = PedirDatosCoordenadas(); //anyadir le asigno
+            //el puntoCoordenadas creado en PedirDatosCoordenadas
             lista_coor_arrayList.add(anyadir);
         }
+        
+//        do{ //añadir hasta que pongas un punto con la x a -1
+//            anyadir = PedirDatosCoordenadas(); //anyadir le asigno
+//            //el puntoCoordenadas creado en PedirDatosCoordenadas
+//            lista_coor_arrayList.add(anyadir);
+//            
+//        }while(anyadir.getX()!=-1);
+        
+        
         
         listarArray(lista_coor_arrayList);
         System.out.println("Dime que posicion quieres borrar");
@@ -64,6 +74,15 @@ public class ArrayVSArrayList {
                 
         lista_coor_arrayList.add(0, borrar);
         listarArray(lista_coor_arrayList);
+        int x1=99;
+        int y1=99;
+        lista_coor_arrayList.add(new PuntoCoordenadas(x1, y1));
+        
+        listarArray(lista_coor_arrayList);
+        buscarSiExiste(lista_coor_arrayList);
+        borrarSiExiste(lista_coor_arrayList);
+        listarArray(lista_coor_arrayList);
+        
     }
 
     /**
@@ -102,6 +121,7 @@ public class ArrayVSArrayList {
     }
 
     private static void listarArray(ArrayList<PuntoCoordenadas> lista_coor_arrayList) {
+        System.out.println("*****************************************************+");
          for (int i = 0; i < lista_coor_arrayList.size(); i++) {
             System.out.println("FOR coordenadas " + lista_coor_arrayList.get(i).todasCoordenadas());
         }
@@ -124,6 +144,66 @@ public class ArrayVSArrayList {
         int y = sc.nextInt();
         PuntoCoordenadas aux = new PuntoCoordenadas(x, y);
         return aux;
+    }
+
+    /**
+     * Esta funcion va a pedir una x e y  y si 
+     * existe en la lista un punto con esas mismas coordenadas
+     * el contains me dara true, sino me dara false;
+     * @param lista_coor_arrayList 
+     */
+    private static void buscarSiExiste(ArrayList<PuntoCoordenadas> lista_coor_arrayList) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pon el punto x de tu coordenada");
+        int p_x = sc.nextInt();
+        System.out.println("Pon el punto y de tu coordenada");
+        int p_y = sc.nextInt();
+        PuntoCoordenadas buscar = new PuntoCoordenadas(p_x,p_y);
+        buscar.setNombrePunto("Nombre inventado");
+        System.out.println(buscar.todasCoordenadas());
+        boolean existe = lista_coor_arrayList.contains(buscar);
+        int indice = lista_coor_arrayList.indexOf(buscar);
+        if (existe==true) // if(exsiste)
+        {
+            System.out.println("este punto existe en tu lista");
+            System.out.println("y esta en " + indice);
+        }
+        else
+        {
+            System.out.println("este punto no existe en la lista");
+            System.out.println("y esta en " + indice);
+        }
+        
+    }
+    
+    
+    
+    /**
+     * Esta funcion va a pedir una x e y  y si 
+     * existe en la lista un punto con esas mismas coordenadas
+     * el contains me dara true, sino me dara false;
+     * @param lista_coor_arrayList 
+     */
+    private static void borrarSiExiste(ArrayList<PuntoCoordenadas> lista_coor_arrayList) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pon el punto x de tu coordenada a borrar");
+        int p_x = sc.nextInt();
+        System.out.println("Pon el punto y de tu coordenada a borrar");
+        int p_y = sc.nextInt();
+        PuntoCoordenadas buscar = new PuntoCoordenadas(p_x,p_y);
+        buscar.setNombrePunto("Nombre inventado");
+        System.out.println(buscar.todasCoordenadas());
+        boolean existe = lista_coor_arrayList.remove(buscar);
+       
+        if (existe==true) // if(exsiste)
+        {
+            System.out.println("he borrado el objeto" + buscar.todasCoordenadas());
+           
+        }
+        else
+        {
+            System.out.println("no existia el objeto");
+        }
     }
     
 }
