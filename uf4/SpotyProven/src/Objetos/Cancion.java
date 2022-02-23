@@ -55,7 +55,6 @@ public class Cancion {
     }
 
 
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -73,6 +72,13 @@ public class Cancion {
         }
         return this.autor.equalsIgnoreCase(other.autor);
     }
+
+    @Override
+    public String toString() {
+        return "La canción " + titol + " es del autor " + autor + " incluida en el  album " + album + " y dura " + duracion + " segundos";
+    }
+
+
 
 
 
