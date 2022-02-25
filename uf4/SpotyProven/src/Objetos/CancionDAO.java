@@ -5,6 +5,7 @@
 package Objetos;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -15,12 +16,8 @@ public class CancionDAO {
 
     public boolean InsertarCancion(ArrayList<Cancion> spotify) {
         Scanner sc= new Scanner(System.in);
-        System.out.println("Fica el titol de la canço");
-        String titol = sc.nextLine();
-        System.out.println("Fica el autor de la canço");
-        String autor = sc.nextLine();
-        Cancion anyadir = new Cancion(titol, autor);
         
+        Cancion anyadir = CrearCancion(sc);
         if (spotify.contains(anyadir)){
             System.out.println("Cancion ya existente");
             return false;
@@ -56,11 +53,8 @@ public class CancionDAO {
 
     public void EliminarCancion(ArrayList<Cancion> spotify) {
         Scanner sc= new Scanner(System.in);
-        System.out.println("Fica el titol de la canço a eliminar");
-        String titol = sc.nextLine();
-        System.out.println("Fica el autor de la canço a eliminar");
-        String autor = sc.nextLine();
-        Cancion borrar = new Cancion(titol, autor);
+        System.out.println("Te voy a pedir datos para borrar la canción ");
+        Cancion borrar = CrearCancion(sc);
         
         if (spotify.remove(borrar))
         {
@@ -92,6 +86,42 @@ public class CancionDAO {
         }
         System.out.println("canciones mostradas " + cont);
         
+    }
+
+    /**
+     * Escgera 3 canciones de forma aleatoria y las metera en mi lista
+     * 
+     * @param spotify 
+     */
+    public void CrearListaFavoritos(ArrayList<Cancion> spotify) {
+        ArrayList<Cancion> lista_favoritos = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Cuanstas canciones quieres en tu lista? ");
+        int num_canciones = sc.nextInt();
+        Random rd = new Random();
+        int pos_aleatoria;
+        int contador=0;
+        do
+        {
+            pos_aleatoria = rd.nextInt(spotify.size());
+            Cancion anyadir = spotify.get(pos_aleatoria);
+            if(!lista_favoritos.contains(anyadir))
+            {
+                lista_favoritos.add(anyadir);
+                contador++;
+                System.out.println("Cancion añadida:" + anyadir.getTitol() + "-" + contador );
+            }
+        }while(contador<num_canciones);
+  
+    }
+
+    private Cancion CrearCancion(Scanner sc) {
+        System.out.println("Fica el titol de la canço");
+        String titol = sc.nextLine();
+        System.out.println("Fica el autor de la canço");
+        String autor = sc.nextLine();
+        Cancion anyadir = new Cancion(titol, autor);
+        return anyadir;
     }
     
 }

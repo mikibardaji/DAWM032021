@@ -42,6 +42,9 @@ public class SpotyProven {
             case 4:
                 utils.listarCancionAlbum(spotify);
                 break;
+            case 5:
+                utils.CrearListaFavoritos(spotify);
+                break;            
             default:
                 System.out.println("opcion incorrecta");
         }
@@ -62,6 +65,12 @@ public class SpotyProven {
            spotify.add(new Cancion("Highway to hell2","AC/DC","Back is black",150));
            spotify.add(new Cancion("Highway to hell3","AC/DC","Back is black",350));
            spotify.add(new Cancion("Mi agüita amarilla2","Los Toreros Muertos"));
+           spotify.add(new Cancion("Highway to hell4","AC/DC","Back is black",350));
+           spotify.add(new Cancion("Highway to hell5","AC/DC","Back is black",350));
+           spotify.add(new Cancion("Highway to hell7","AC/DC","Back is black",350));
+           spotify.add(new Cancion("Highway to hell8","AC/DC","Back is black",350));
+           spotify.add(new Cancion("Highway to hell9","AC/DC","Back is black",350));
+           
     }
     
     
