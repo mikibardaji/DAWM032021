@@ -54,7 +54,11 @@ public class Astros {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+        if (!(obj instanceof Astros))
+        {
             return false;
         }
         final Astros other = (Astros) obj;

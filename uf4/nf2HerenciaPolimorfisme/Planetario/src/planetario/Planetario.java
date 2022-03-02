@@ -105,19 +105,21 @@ public class Planetario {
         System.out.println("Que astros quieres ver , pon su nombre");
 
         String nombre_buscado = sc.nextLine();
-        System.out.println("Es Planeta o Satelite");
-        String planeta_satelite = sc.nextLine();
+//        System.out.println("Es Planeta o Satelite");
+//        String planeta_satelite = sc.nextLine();
         Astros buscado;
-        if (planeta_satelite.equalsIgnoreCase("Planeta"))
-        {
-            //buscado = new Planetas(0,0,true,nombre_buscado, 0, 0);
-            buscado = new Planetas(nombre_buscado);
-        }
-        else
-        {
-            //buscado = new Satelites(0,0,"planetaquepertenece",nombre_buscado, 0, 0);
-            buscado = new Planetas(nombre_buscado);
-        }
+        //buscado = new Astros(nombre_buscado,0,0);
+        buscado = new Astros(nombre_buscado);
+//        if (planeta_satelite.equalsIgnoreCase("Planeta"))
+//        {
+//            //buscado = new Planetas(0,0,true,nombre_buscado, 0, 0);
+//            buscado = new Planetas(nombre_buscado);
+//        }
+//        else
+//        {
+//            //buscado = new Satelites(0,0,"planetaquepertenece",nombre_buscado, 0, 0);
+//            buscado = new Planetas(nombre_buscado);
+//        }
        
         int posicion = planetario.indexOf(buscado);
         if (posicion==-1)
