@@ -38,7 +38,6 @@ public class Satelites extends Astros{
     }
 
 
-
     
     @Override
     public String toString() {

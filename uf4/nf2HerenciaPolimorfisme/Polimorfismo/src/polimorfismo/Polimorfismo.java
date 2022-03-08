@@ -38,6 +38,8 @@ public class Polimorfismo {
        
        polimadre.llamame();
         System.out.println(((Hija2) polimadre).edat);
+        
+        polimadre = Madre.madreJosefa();
     }
     
 }

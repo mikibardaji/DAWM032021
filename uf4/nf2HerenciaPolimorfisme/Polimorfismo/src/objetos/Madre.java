@@ -9,9 +9,17 @@ package objetos;
  * @author alumne
  */
 public class Madre {
-    
+    private String nombre;
     public void llamame()
     {
         System.out.println("Soy la clase madre");
+    }
+    
+    
+    public static Madre madreJosefa()
+    {
+        Madre nueva = new Madre();
+        nueva.nombre = "Josefa";
+        return nueva;
     }
 }
