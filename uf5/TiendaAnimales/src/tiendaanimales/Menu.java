@@ -54,6 +54,7 @@ public class Menu {
     //showMenu()
     public void showMenu()
     {
+        Iterator it = options.iterator();
         for (int i = 0; i < options.size(); i++) {
             System.out.println(options.get(i).toString());
         }
