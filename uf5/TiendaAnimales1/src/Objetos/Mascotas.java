@@ -1,0 +1,78 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package Objetos;
+
+/**
+ *
+ * @author alumne
+ */
+public abstract class Mascotas implements SerVivo{
+    protected String nombre;
+    protected int edat;
+    protected boolean estado; //si esta vivo o muerto
+    protected int anyo_nacimiento;
+
+    public Mascotas(String nombre, int edat, boolean estado, int anyo_nacimiento) {
+        this.nombre = nombre;
+        this.edat = edat;
+        this.estado = estado;
+        this.anyo_nacimiento = anyo_nacimiento;
+    }
+
+    
+    
+    
+    
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdat() {
+        return edat;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public int getAnyo_nacimiento() {
+        return anyo_nacimiento;
+    }
+    
+    
+    public void cumpleanyos()
+    {
+        System.out.println("Tu mascota " + nombre + " nació el año " + anyo_nacimiento);
+    }
+    
+    public void morir()
+    {
+        this.estado = false;
+        System.out.println(" Tu mascota ha perecido.");
+    }
+    
+    protected abstract void habla();
+    
+    /* Tostring como esta en uml deberia ser abstracto
+    pero lo definimos aquí para ahorrarnos codigo
+    */
+
+    @Override
+    public String toString() {
+        return "" + "nombre=" + nombre + ", edat=" + edat + ", estado=" + estado + ", anyo_nacimiento=" + anyo_nacimiento + ", ";
+    }
+
+    @Override
+    public void respirar() {
+        System.out.println("respiro");
+    }
+
+    @Override
+    public void comer() {
+        System.out.println("Como ");
+    }
+    
+}
