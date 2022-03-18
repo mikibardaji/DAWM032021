@@ -4,9 +4,11 @@
  */
 package tiendaanimales;
 
+import Utilidades.Menu; //
 import Objetos.Canario;
 import Objetos.Loro;
 import Objetos.Perro;
+import Utilidades.Option;
 import java.util.Scanner;
 
 /**
@@ -14,77 +16,44 @@ import java.util.Scanner;
  * @author alumne
  */
 public class TiendaAnimales {
+    private Inventario tienda; //es un atributo de esta clase
+    //y como todos los atributos, pueden acceder todos los metodos
+    //sin tener que pasarselo como parametro
+    private Menu menu_principal;
+    
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Inventario tienda = new Inventario();
+        TiendaAnimales app = new TiendaAnimales();
         
-        loadAnimales(tienda);
-        int opcion;
-        do{
-        opcion = menu();
-        switch(opcion)
-        {
-            case 1:
-                System.out.println("opcion aun no implementada");
-                break;
-            case 2:
-                System.out.println("opcion aun no implementada");
-                break;    
-            case 3:
-                mostrarDatosAnimales(tienda);
-                break;
-            case 4:
-                InsertarAnimal(tienda);
-                break;
-            case 6:
-                EliminarAnimales(tienda);
-                break;
-            case 0:
-                System.out.println("saliendo");
-                break;
-            default:
-                System.out.println("opcion no implementada");
-                break;
-        }
-        } while(opcion!=0);
+        app.lanzarApp(); //su unica función es lanzar el metodo run
+        //que ya no es estatico y que no tendra la obligación de 
+        //llamar a otros metodos estáticos.
+        
+
     }
 
-    private static void loadAnimales(Inventario tienda) {
+    private void loadAnimales() {
         System.out.println("Cargando animales de muestra....");
         tienda.InsertarAnimal(new Perro("Carlos", 10, true, 2000, "Bulldog", true));
         tienda.InsertarAnimal(new Perro("Paco", 20, true, 2020, "Bichon Maltes", false));
-        tienda.InsertarAnimal(new Loro("Nicolas", 20, true, 2010, 5, true, "Brasil", true));
-        tienda.InsertarAnimal(new Canario("Juan Carlos III", 80, true, 1942, 100, false, "multicolor", false));
+        tienda.InsertarAnimal(new Loro("Nicolas", 20, true, 2010, 5, true,  true));
+        tienda.InsertarAnimal(new Canario("Juan Carlos III", 80, true, 1942, 100, false,  false));
     }
 
-    private static int menu() {
-        System.out.println("1 Mostrar la lista de animales (solo tipo y nombre, 1 línea por animal).\n" +
-"2 Mostrar todos los datos de un animal concreto.\n" +
-"3 Mostrar todos los datos de todos los animales.\n" +
-"4 Insertar animales en el inventario.\n" +
-"5 Eliminar animales del inventario.\n" +
-"6 Vaciar el inventario\n 0 Salir");
-        
-        
-        System.out.print("Escoge opcion: ");
-        Scanner sc = new Scanner(System.in);
-        int opcion = sc.nextInt();
-        return opcion;
-        
-    }
 
-    private static void mostrarDatosAnimales(Inventario tienda) {
+
+    private void mostrarDatosAnimales() {
         tienda.MostrarListaAnimales();
     }
 
-    private static void EliminarAnimales(Inventario tienda) {
+    private void EliminarAnimales() {
         tienda.VaciarInventario();
     }
 
-    private static void InsertarAnimal(Inventario tienda) {
+    private void InsertarAnimal() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Nombre animal");
         String nombre = sc.nextLine();
@@ -109,12 +78,11 @@ public class TiendaAnimales {
                 tienda.InsertarAnimal(dog);
                 break;
             case "CANARIO":
-                System.out.println("Que color es el canario");
-                String color = sc.nextLine();
+               
                 boolean canta = true;
                 boolean vuela = true;
                 int pico = 5;
-                canary = new Canario(nombre, edad, canta, anyo, pico, vuela, color, canta);
+                canary = new Canario(nombre, edad, canta, anyo, pico, vuela,  canta);
                 tienda.InsertarAnimal(canary);
                 break;
         }
@@ -122,6 +90,66 @@ public class TiendaAnimales {
         
         
     }
+
+    private void lanzarApp() {
+        tienda = new Inventario(); //arraylist de animales
+        menu_principal = new Menu("Tienda de Animales VeterClinic");
+       
+        addOptionsMenu();
+        
+        loadAnimales(); //carga algunos animales de muestra
+        int opcion;
+        do{
+        menu_principal.showMenu();
+        opcion = menu_principal.choose();
+        switch(opcion)
+        {
+            case 1:
+                mostrarDatosAnimalesCortos();
+                break;
+            case 2:
+                System.out.println("opcion aun no implementada");
+                break;    
+            case 3:
+                mostrarDatosAnimales();
+                break;
+            case 4:
+                InsertarAnimal();
+                break;
+            case 6:
+                EliminarAnimales();
+                break;
+            case 0:
+                System.out.println("saliendo de la aplicacion...");
+                break;
+            default:
+                System.out.println("opcion no implementada");
+                break;
+        }
+        } while(opcion!=0);
+        
+    }
+
+    /**
+     * añade todas las opciones de nuestro menú 
+     * al objeto menú
+     */
+    private void addOptionsMenu() {
+        menu_principal.add(new Option("Salir"));
+        menu_principal.add(new Option("Mostrar la lista de animales (solo tipo y nombre, 1 línea por animal)."));
+        menu_principal.add(new Option("Mostrar todos los datos de un animal concreto."));
+        menu_principal.add(new Option("Mostrar todos los datos de todos los animales."));
+        menu_principal.add(new Option("Insertar animales en el inventario."));
+        menu_principal.add(new Option("Eliminar animales del inventario."));
+        menu_principal.add(new Option("Vaciar el inventario"));
+        
+    }
+
+    private void mostrarDatosAnimalesCortos() {
+        tienda.MostrarListaAnimalesCortos();
+    }
+
+
     
         
     

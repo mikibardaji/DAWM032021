@@ -75,4 +75,26 @@ public abstract class Mascotas implements SerVivo{
         System.out.println("Como ");
     }
     
+    public String datos_cortos()
+    {
+        String datos="";
+        if (this instanceof Canario)
+        {
+            datos = "Canario ";
+        }
+        else if (this instanceof Perro)
+        {
+            datos = "Perro ";
+        }
+        else if (this instanceof Loro)
+        {
+            datos = "Loro ";
+        }
+        else if (this instanceof Gato)
+        {
+            datos = "Gato ";
+        }
+        datos = datos + "- " + this.nombre + "- " + this.edat;
+        return datos;
+    }
 }

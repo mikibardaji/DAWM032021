@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tiendaanimales;
+package Utilidades;
 
 import Objetos.Mascotas;
 import java.util.ArrayList;
@@ -54,9 +54,12 @@ public class Menu {
     //showMenu()
     public void showMenu()
     {
-        Iterator it = options.iterator();
+        //Iterator it = options.iterator();
+        System.out.println("----" + this.Title + "-----");
         for (int i = 0; i < options.size(); i++) {
-            System.out.println(options.get(i).toString());
+            System.out.format("%d - %s \n",i,options.get(i).toString());
+            //format muy similar al printf
+            //System.out.println(options.get(i).toString());
         }
     }
     

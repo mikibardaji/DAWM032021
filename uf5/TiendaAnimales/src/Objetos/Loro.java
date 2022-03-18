@@ -9,21 +9,19 @@ package Objetos;
  * @author alumne
  */
 public final class Loro extends Aves {
-    private String origen;
+
     private boolean habla;
 
-    public Loro( String nombre, int edat, boolean estado, int anyo_nacimiento, int pico, boolean vuela,String origen, boolean habla) {
+    public Loro( String nombre, int edat, boolean estado, int anyo_nacimiento, int pico, boolean vuela, boolean habla) {
         super(nombre, edat, estado, anyo_nacimiento, pico, vuela);
-        this.origen = origen;
+       
         this.habla = habla;
     }
     
     
     
 
-    public String getOrigen() {
-        return origen;
-    }
+
 
     public boolean isHabla() {
         return habla;
@@ -57,7 +55,7 @@ public final class Loro extends Aves {
     @Override
     public String toString() {
         String Ave = super.toString();
-        return "Loro{" + Ave + "origen=" + origen + ", habla=" + habla + '}';
+        return "Loro{" + Ave + ", habla=" + habla + '}';
     }
     
     

@@ -9,21 +9,19 @@ package Objetos;
  * @author alumne
  */
 public final class Canario extends Aves {
-    private String color;
+
     private  boolean canta;
 
-    public Canario( String nombre, int edat, boolean estado, int anyo_nacimiento, int pico, boolean vuela,String color, boolean canta) {
+    public Canario( String nombre, int edat, boolean estado, int anyo_nacimiento, int pico, boolean vuela, boolean canta) {
         super(nombre, edat, estado, anyo_nacimiento, pico, vuela);
-        this.color = color;
+
         this.canta = canta;
     }
     
     
     
 
-    public String getColor() {
-        return color;
-    }
+
 
     public boolean isCanta() {
         return canta;
@@ -32,7 +30,7 @@ public final class Canario extends Aves {
     @Override
     public String toString() {
         String mascota = super.toString();
-        return "Canario{" + mascota + "color=" + color + ", canta=" + canta + '}';
+        return "Canario{" + mascota +  ", canta=" + canta + '}';
     }
 
     @Override

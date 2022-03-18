@@ -42,6 +42,17 @@ public class Inventario {
         System.out.println("numero de mascotas " + getNumMascotas());
     }
     
+    public void MostrarListaAnimalesCortos() {
+        for (Mascotas pet : catalogo) {
+            System.out.println(pet.datos_cortos());
+        }
+        
+        
+        System.out.println("numero de mascotas " + getNumMascotas());
+    }
+    
+    
+    
     public void VaciarInventario()
     {
         catalogo.clear();
@@ -56,7 +67,9 @@ public class Inventario {
         //y si no esta añadido hacerlo sino avisar
         //haria falta el equals
         catalogo.add(anyadir);
-        Iterator t;
+     //   Iterator t;
         
     }
+
+
 }
