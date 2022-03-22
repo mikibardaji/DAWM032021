@@ -44,7 +44,7 @@ public class Menu {
                 sb.append(opcion.toString());
             }
             
-            Iterator it = options.iterator();
+           // Iterator it = options.iterator();
             
         return sb.toString();
         }

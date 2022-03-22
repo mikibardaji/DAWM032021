@@ -49,6 +49,7 @@ public class Inventario {
         
         
         System.out.println("numero de mascotas " + getNumMascotas());
+        
     }
     
     
@@ -69,6 +70,66 @@ public class Inventario {
         catalogo.add(anyadir);
      //   Iterator t;
         
+    }
+
+    /**
+     * devuelve el animal que esta en la posición pedida
+     * @param posicion
+     * @return animal o null
+     */
+    Mascotas MostrarAnimalPorPosicion(int posicion) {
+         
+//        if (posicion>=0 && posicion < catalogo.size())
+//        {
+//            return catalogo.get(posicion);
+//        }
+//          else
+//            return null;
+
+        
+        try
+        {
+            return catalogo.get(posicion);
+        }
+        catch(IndexOutOfBoundsException IOB)
+        {
+            
+            return null;
+        }
+    }
+
+    /**
+     * Busca el animal que tiene el nombre pasado
+     * @param nombre
+     * @return animal encontrado o null si no lo encuentra
+     */
+    public Mascotas getAnimalNombre(String nombre) {
+        for (Mascotas pet : catalogo) {
+            if (pet.getNombre().equalsIgnoreCase(nombre))
+            {
+                return pet; //lo encontre en alguna posición
+            }
+        }
+        return null;
+       
+        
+    }
+    
+    /**
+     * borrar posicion del array list
+     * @param posicion
+     * @return Mascotas or null
+     */
+
+    Mascotas EliminarAnimalPosicion(int posicion) {
+        try
+        {
+        return catalogo.remove(posicion);
+        }
+        catch(IndexOutOfBoundsException ex)
+        {
+            return null;
+        }
     }
 
 

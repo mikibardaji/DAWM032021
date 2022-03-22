@@ -7,6 +7,7 @@ package tiendaanimales;
 import Utilidades.Menu; //
 import Objetos.Canario;
 import Objetos.Loro;
+import Objetos.Mascotas;
 import Objetos.Perro;
 import Utilidades.Option;
 import java.util.Scanner;
@@ -108,16 +109,28 @@ public class TiendaAnimales {
                 mostrarDatosAnimalesCortos();
                 break;
             case 2:
-                System.out.println("opcion aun no implementada");
-                break;    
+                getAnimalPosicion();
+                break;   
             case 3:
+                getAnimalNombre();
+                break;              
+            case 4:
                 mostrarDatosAnimales();
                 break;
-            case 4:
+            case 5:
                 InsertarAnimal();
                 break;
             case 6:
+                EliminarAnimalPorPosicion();
+                break;
+            case 7:
+                EliminarAnimalPorNombre();
+                break;
+            case 8:
                 EliminarAnimales();
+                break;
+            case 9:
+                //TO DO
                 break;
             case 0:
                 System.out.println("saliendo de la aplicacion...");
@@ -137,16 +150,70 @@ public class TiendaAnimales {
     private void addOptionsMenu() {
         menu_principal.add(new Option("Salir"));
         menu_principal.add(new Option("Mostrar la lista de animales (solo tipo y nombre, 1 línea por animal)."));
-        menu_principal.add(new Option("Mostrar todos los datos de un animal concreto."));
+        menu_principal.add(new Option("Mostrar todos los datos de un animal concreto por su posición."));
+        menu_principal.add(new Option("Mostrar todos los datos de un animal concreto por nombre."));
         menu_principal.add(new Option("Mostrar todos los datos de todos los animales."));
         menu_principal.add(new Option("Insertar animales en el inventario."));
-        menu_principal.add(new Option("Eliminar animales del inventario."));
+        menu_principal.add(new Option("Eliminar animales del inventario por posicion."));
+        menu_principal.add(new Option("Eliminar animales del inventario por nombre."));
+        menu_principal.add(new Option("Cambiar edad del animal buscado por nombre"));
         menu_principal.add(new Option("Vaciar el inventario"));
         
     }
 
     private void mostrarDatosAnimalesCortos() {
         tienda.MostrarListaAnimalesCortos();
+    }
+
+    private void getAnimalPosicion() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Que animal quieres ver del 1-" + tienda.getNumMascotas());
+        int posicion = sc.nextInt()-1;
+        Mascotas mostrar = tienda.MostrarAnimalPorPosicion(posicion); //get ArrayList
+        if (mostrar==null) //no ha encontrado nada
+        {
+            System.out.println("La posición no es valida ->" + (posicion+1));
+        }
+        else //ha encontrado algo
+        {
+            System.out.println("mascota encontrada;" + mostrar.datos_cortos());
+        }
+    }
+
+    private void getAnimalNombre() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pon nombre animal bsucasdo");
+        String nombre = sc.nextLine();
+        Mascotas mostrar = tienda.getAnimalNombre(nombre);
+        
+        
+        if (mostrar==null) //no ha encontrado nada
+        {
+            System.out.println("No hay animal con nombre " + nombre);
+        }
+        else //ha encontrado algo
+        {
+            System.out.println("mascota encontrada;" + mostrar.datos_cortos());
+        }
+    }
+
+    private void EliminarAnimalPorPosicion() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Que animal quieres ver del 1-" + tienda.getNumMascotas());
+        int posicion = sc.nextInt()-1;
+        Mascotas borrada = tienda.EliminarAnimalPosicion(posicion);
+        if (borrada==null)
+                {
+                    System.out.println("Posicion incorrecta");
+                }
+        else
+        {
+            System.out.println("has borrado -> " + borrada.datos_cortos());
+        }
+    }
+
+    private void EliminarAnimalPorNombre() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 

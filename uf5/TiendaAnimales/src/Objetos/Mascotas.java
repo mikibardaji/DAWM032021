@@ -94,7 +94,7 @@ public abstract class Mascotas implements SerVivo{
         {
             datos = "Gato ";
         }
-        datos = datos + "- " + this.nombre + "- " + this.edat;
+        datos = datos + "- " + this.nombre ;
         return datos;
     }
 }
