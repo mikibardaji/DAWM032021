@@ -130,7 +130,7 @@ public class TiendaAnimales {
                 EliminarAnimales();
                 break;
             case 9:
-                //TO DO
+                cambiarEdadAnimal();
                 break;
             case 0:
                 System.out.println("saliendo de la aplicacion...");
@@ -213,11 +213,37 @@ public class TiendaAnimales {
     }
 
     private void EliminarAnimalPorNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pon nombre animal bsucasdo");
+        String nombre = sc.nextLine();
+        //si con los datos introducidos pudiera crear un
+        //objeto lo crearia aquí para pasarlo
+        //Mascotas del = new Mascotas(nombre);
+        Mascotas borrado = tienda.BorrarAnimalPorNombre(nombre);
+        if (borrado==null)
+        {
+            System.out.println("no hay animal coon nombre" + nombre);
+        }
+        else
+        {
+            System.out.println("Borrado" + borrado.toString());
+        }
+        
+        
     }
 
 
-    
+    private void cambiarEdadAnimal() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Pon nombre animal bsucasdo");
+        String nombre = sc.nextLine();
+        System.out.println("Pon la nueva edad");
+        int edad = sc.nextInt();
+        
+        boolean cambiado = tienda.cambiarEdadAnimalPorNombre(nombre, edad);
+        
+    }
+
         
     
 }

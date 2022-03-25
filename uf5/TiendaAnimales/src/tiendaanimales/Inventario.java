@@ -132,5 +132,27 @@ public class Inventario {
         }
     }
 
+    public Mascotas BorrarAnimalPorNombre(String nom) {
+        //busco el animal por su nombre
+        for (int i = 0; i < catalogo.size(); i++) {
+            if (catalogo.get(i).getNombre().equalsIgnoreCase(nom))
+            {
+                return catalogo.remove(i); //devuelve el objeto borrado o null
+            }
+        }
+        return null;
+    }
+
+    public boolean cambiarEdadAnimalPorNombre(String nom, int edad) {
+        for (int i = 0; i < catalogo.size(); i++) {
+            if (catalogo.get(i).getNombre().equalsIgnoreCase(nom))
+            {
+                catalogo.get(i).setEdat(edad); //devuelve el objeto borrado o null
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

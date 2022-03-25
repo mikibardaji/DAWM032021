@@ -21,6 +21,10 @@ public abstract class Mascotas implements SerVivo{
         this.anyo_nacimiento = anyo_nacimiento;
     }
 
+    public void setEdat(int edat) {
+        this.edat = edat;
+    }
+
     
     
     
