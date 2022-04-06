@@ -4,11 +4,13 @@
  */
 package Objetos;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alumne
  */
-public abstract class Mascotas implements SerVivo{
+public abstract class Mascotas implements SerVivo,Serializable{
     protected String nombre;
     protected int edat;
     protected boolean estado; //si esta vivo o muerto

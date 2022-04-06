@@ -10,7 +10,11 @@ import Objetos.Loro;
 import Objetos.Mascotas;
 import Objetos.Perro;
 import Utilidades.Option;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -132,6 +136,12 @@ public class TiendaAnimales {
             case 9:
                 cambiarEdadAnimal();
                 break;
+            case 10:
+                saveItems();
+                break;
+            case 11:
+                readItems();
+                break;
             case 0:
                 System.out.println("saliendo de la aplicacion...");
                 break;
@@ -158,6 +168,8 @@ public class TiendaAnimales {
         menu_principal.add(new Option("Eliminar animales del inventario por nombre."));
         menu_principal.add(new Option("Cambiar edad del animal buscado por nombre"));
         menu_principal.add(new Option("Vaciar el inventario"));
+        menu_principal.add(new Option("Grabar el listado en archivo"));
+        menu_principal.add(new Option("Recuperar datos del archivo"));
         
     }
 
@@ -242,6 +254,27 @@ public class TiendaAnimales {
         
         boolean cambiado = tienda.cambiarEdadAnimalPorNombre(nombre, edad);
         
+    }
+
+    private void saveItems() {
+        int num_items;
+        try {
+            num_items = tienda.saveItemsToFile();
+        } 
+        catch (FileNotFoundException ex)
+        {
+            System.out.println("Fichero no existente" + ex.getMessage());
+            num_items=0;
+        }
+        catch (IOException ex) {
+            System.out.println("Error escritura" + ex.getMessage());
+            num_items=0;
+        } 
+        System.out.println("Items grabados " + num_items);
+    }
+
+    private void readItems() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
         

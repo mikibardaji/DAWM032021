@@ -5,6 +5,9 @@
 package tiendaanimales;
 
 import Objetos.Mascotas;
+import Persistence.PersistenciaArchivo;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -152,6 +155,18 @@ public class Inventario {
             }
         }
         return false;
+    }
+
+    public int saveItemsToFile() throws FileNotFoundException, IOException {
+        //grabar todo el arraylist en un objeto binario
+        if (PersistenciaArchivo.saveAllItems(catalogo))
+        {
+            return catalogo.size();
+        }
+        else
+        {
+        return 0;
+        }
     }
 
 
