@@ -29,6 +29,7 @@ public class VentanaGrid extends JFrame{
         gr.setVgap(5);
         
         cp.setLayout(gr); //al panel del jframe va a ser Grid Layout
+        //JButton[] botones = new JButton[10];
         for (int i = 1; i < 10; i++) {
             cp.add(new JButton(String.valueOf(i)));
         }
