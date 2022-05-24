@@ -4,6 +4,10 @@
  */
 package gestionalumnosgrafic;
 
+import Controlador.Controlador;
+import Modelo.AlumnosDAO;
+import Vista.VentanaAlumnos;
+
 /**
  *
  * @author alumne
@@ -14,7 +18,9 @@ public class GestionAlumnosGrafic {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        AlumnosDAO modelo = new AlumnosDAO();
+        VentanaAlumnos vista = new VentanaAlumnos();
+        Controlador cont = new Controlador(modelo, vista);
     }
     
 }

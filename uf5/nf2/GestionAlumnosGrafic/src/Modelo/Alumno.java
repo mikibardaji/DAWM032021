@@ -66,11 +66,6 @@ public class Alumno {
         
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        return hash;
-    }
 
     @Override
     public boolean equals(Object obj) {
@@ -80,14 +75,19 @@ public class Alumno {
         if (obj == null) {
             return false;
         }
-        if (obj instanceof Alumno) {
-            return false;
-        }
+//        if (!(obj instanceof Alumno)) {
+//            return false;
+//        }
         final Alumno other = (Alumno) obj;
-        if (this.nombre.equalsIgnoreCase(other.nombre)) {
+        if (!this.nombre.equalsIgnoreCase(other.nombre)) {
             return false;
         }
         return (this.apellido.equalsIgnoreCase(other.apellido));
+    }
+
+    @Override
+    public String toString() {
+        return "nom=" + nombre + ", cog.=" + apellido + '-';
     }
     
     
