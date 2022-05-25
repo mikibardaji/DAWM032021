@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /**
@@ -22,7 +23,7 @@ public class PanelDatosAnyadir extends JPanel{
     private JTextField tfNombre,tfApellidos,tfEdad; //cuadres de text
     private JComboBox cmbCiclo;
     private JLabel resultado;
-    private JLabel listar;
+    private JTextArea listar; //para que pueda contener mas caracteres
 
     public PanelDatosAnyadir() {
         initComponents();
@@ -52,7 +53,7 @@ public class PanelDatosAnyadir extends JPanel{
         cmbCiclo.addItem("ASIX");
         cmbCiclo.addItem("DAW");
         cmbCiclo.addItem("DAM");
-        listar = new JLabel("ejemplo");
+        listar = new JTextArea("ejemplo");
         //1,1
         panelCentral.add(lblNombre);
         //1,2
@@ -121,7 +122,7 @@ public class PanelDatosAnyadir extends JPanel{
         return resultado;
     }
 
-    public JLabel getListar() {
+    public JTextArea getListar() {
         return listar;
     }
 
@@ -145,8 +146,8 @@ public class PanelDatosAnyadir extends JPanel{
         this.resultado = resultado;
     }
 
-    public void setListar(JLabel listar) {
-        this.listar = listar;
+    public void setListar(String listar) {
+        this.listar.setText(listar);
     }
     
     

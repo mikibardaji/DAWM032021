@@ -49,7 +49,7 @@ public class AlumnosDAO implements IAlumnos{
         StringBuilder total = new StringBuilder();
         int i=1;
         for (Alumno alumno : clase) {
-            total.append(i + "-" + alumno.toString());
+            total.append(i + "-" + alumno.toString() + "\n");
             i++;
         }
         

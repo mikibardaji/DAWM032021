@@ -7,9 +7,11 @@ package Controlador;
 import Modelo.Alumno;
 import Modelo.AlumnosDAO;
 import Vista.PanelDatosAnyadir;
+import Vista.PanelTextArea;
 import Vista.VentanaAlumnos;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.crypto.interfaces.PBEKey;
 
 /**
  *
@@ -28,18 +30,37 @@ public class Controlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         
+        
+        //pregunto por los botones
         PanelDatosAnyadir panel = (PanelDatosAnyadir)vista.getContentPane();
+        
         
         if(panel.getBtGuardar() == ae.getSource())
         {
-            anyadirAlumno(panel);
-            
+            anyadirAlumno(panel); 
         }
         if(panel.getBtReset() == ae.getSource())
         {
             resetear(panel);
             
         }        
+        if(panel.getBtListar()== ae.getSource())
+        {
+            listarAlumnos(panel);
+            
+        }
+        
+        //voy a preguntar si ha saltado por el menú item
+        String action = ae.getActionCommand();
+        if (action.equals("guardar"))
+        {
+            anyadirAlumno(panel);  
+        }
+        if (action.equals("menuItemNuevoPanel"))
+        {
+            cambiarPanel();  
+        }
+        
         //tengo que saber que panel tengo activo
         //puedo utilizar una nueva variable
 //        PanelDatosAnyadir anyadir = 
@@ -57,6 +78,8 @@ public class Controlador implements ActionListener{
             panel.getBtGuardar().addActionListener(this);
             panel.getBtListar().addActionListener(this);
             panel.getBtReset().addActionListener(this);
+            
+            vista.getMenuItemGuardar().addActionListener(this);
         
     }
 
@@ -82,6 +105,19 @@ public class Controlador implements ActionListener{
          panel.getTfApellidos().setText("");
         panel.getTfEdad().setText("0");
         panel.getCmbCiclo().setSelectedIndex(0);
+    }
+
+    private void listarAlumnos(PanelDatosAnyadir panel) {
+        StringBuilder listado= new StringBuilder();
+        listado.append(modelo.listarString());
+        panel.getListar().setText(listado.toString());
+    }
+
+    private void cambiarPanel() {
+        PanelTextArea other = new PanelTextArea();
+        
+        vista.setContentPane(other);
+       
     }
 
 
